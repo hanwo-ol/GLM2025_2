@@ -1,0 +1,12 @@
+streamlit
+google-generativeai
+langchain
+langchain-google-genai
+langchain-community
+faiss-cpu
+pypdf
+requests
+pandas
+numpy
+matplotlib
+scipy
