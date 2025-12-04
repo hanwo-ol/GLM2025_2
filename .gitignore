@@ -1,7 +1,0 @@
-__pycache__/
-*.pyc
-.env
-data/
-faiss_index/
-workspace/
-venv/
