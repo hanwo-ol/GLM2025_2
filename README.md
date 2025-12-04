@@ -18,14 +18,14 @@ GitHub 저장소 (`hanwo-ol/GLM2025_2`)에 있는 강의 자료와 숙제 파일
 
 ### 1. 환경 설정
 
-이 프로젝트는 Python 3.9 이상이 필요합니다.
+**⚠️ 주의:** 이 프로젝트는 **Python 3.9 이상**이 필수입니다. (`google-generativeai` 라이브러리 요구사항)
 
 ```bash
 # 저장소 클론
 git clone https://github.com/your-username/your-repo-name.git
 cd your-repo-name
 
-# 가상환경 생성 (권장)
+# 가상환경 생성 (권장 - Python 3.9 이상 사용)
 python -m venv venv
 source venv/bin/activate  # Windows: venv\Scripts\activate
 
@@ -53,7 +53,18 @@ streamlit run app.py
 2.  Streamlit Cloud에 로그인하고 **"New app"**을 클릭합니다.
 3.  방금 Push한 저장소를 선택합니다.
 4.  **Deploy!**
-    *   `packages.txt` 파일이 포함되어 있어 Streamlit Cloud가 자동으로 `r-base`를 설치합니다.
+    *   `packages.txt`: Streamlit Cloud가 자동으로 `r-base`를 설치합니다.
+    *   `runtime.txt`: Streamlit Cloud가 자동으로 Python 3.9 환경을 구성합니다.
+
+---
+
+## 🔧 문제 해결 (Troubleshooting)
+
+### Q: `ERROR: No matching distribution found for google-generativeai` 오류가 발생해요.
+**A:** 현재 사용 중인 Python 버전이 **3.9 미만**일 가능성이 높습니다.
+1. 터미널에서 `python --version`을 입력하여 버전을 확인하세요.
+2. 만약 3.8 이하라면, [Python 공식 홈페이지](https://www.python.org/downloads/)에서 3.9 이상의 버전을 설치하세요.
+3. 기존 가상환경 폴더(`venv`)를 삭제하고, 새 버전의 Python으로 다시 가상환경을 생성해 주세요.
 
 ---
 
