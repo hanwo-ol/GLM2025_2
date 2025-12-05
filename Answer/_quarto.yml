@@ -1,0 +1,22 @@
+project:
+  type: website
+  output-dir: ../docs
+
+website:
+  title: "GLM Homework Answers"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: ContingencyTable/
+        text: Contingency Table
+      - href: LogisticRegression/
+        text: Logistic Regression
+      - href: LogLinearModel/
+        text: Log-Linear Model
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true

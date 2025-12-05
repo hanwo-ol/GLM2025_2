@@ -1,0 +1,18 @@
+---
+title: "Generalized Linear Models Homework Solutions"
+---
+
+This website contains detailed solutions for the Generalized Linear Models (GLM) course assignments.
+
+## Contents
+
+- [**Contingency Table**](ContingencyTable/001_answer.md): Basic analysis of contingency tables, Odds Ratios, Relative Risk, and Chi-square tests.
+- [**Logistic Regression**](LogisticRegression/001_answer.md): Binary response models, Logit link, Interpretation of coefficients, and Model selection.
+- [**Log-Linear Model**](LogLinearModel/001_answer.md): Count data analysis, Poisson regression, Independence models, and Collapsibility.
+
+## Note
+
+The solutions include:
+- **Mathematical Derivations**: Rigorous proofs and step-by-step calculations.
+- **R Code**: Implementation for verification and practice.
+- **Deep Understanding**: Advanced statistical insights and theoretical context.
