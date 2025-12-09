@@ -27,9 +27,11 @@ b. 흡연을 하지 않음으로 줄일 수 있는 사망률을 근거로 어떤
 각 질병에 대한 사망 확률($\pi$)은 다음과 같다.
 
 **폐암 (Lung Cancer, LC):**
+
 $$ \pi_{S, LC} = 0.0014, \quad \pi_{NS, LC} = 0.00010 $$
 
 **심장병 (Heart Disease, HD):**
+
 $$ \pi_{S, HD} = 0.00669, \quad \pi_{NS, HD} = 0.00413 $$
 
 ### a. 연관성 기술 (비율 차, 상대위험도, 오즈비)
@@ -39,29 +41,41 @@ $$ \pi_{S, HD} = 0.00669, \quad \pi_{NS, HD} = 0.00413 $$
 #### 1. 폐암 (Lung Cancer)
 
 **비율 차 (Difference of Proportions, $\delta$):**
+
 $$ \delta_{LC} = \pi_{S, LC} - \pi_{NS, LC} = 0.0014 - 0.00010 = 0.0013 $$
+
 즉, 흡연자는 비흡연자에 비해 연간 폐암 사망률이 0.13%포인트 높다.
 
 **상대위험도 (Relative Risk, $RR$):**
+
 $$ RR_{LC} = \frac{\pi_{S, LC}}{\pi_{NS, LC}} = \frac{0.0014}{0.00010} = 14.0 $$
+
 흡연자는 비흡연자보다 폐암으로 사망할 위험이 14배 높다.
 
 **오즈비 (Odds Ratio, $OR$):**
+
 $$ OR_{LC} = \frac{\pi_{S, LC} / (1 - \pi_{S, LC})}{\pi_{NS, LC} / (1 - \pi_{NS, LC})} = \frac{0.0014 / 0.9986}{0.00010 / 0.9999} \approx 14.02 $$
+
 사망 확률이 매우 낮으므로 오즈비는 상대위험도와 거의 유사하다.
 
 #### 2. 심장병 (Heart Disease)
 
 **비율 차 (Difference of Proportions, $\delta$):**
+
 $$ \delta_{HD} = \pi_{S, HD} - \pi_{NS, HD} = 0.00669 - 0.00413 = 0.00256 $$
+
 흡연자는 비흡연자에 비해 연간 심장병 사망률이 약 0.256%포인트 높다.
 
 **상대위험도 (Relative Risk, $RR$):**
+
 $$ RR_{HD} = \frac{\pi_{S, HD}}{\pi_{NS, HD}} = \frac{0.00669}{0.00413} \approx 1.62 $$
+
 흡연자는 비흡연자보다 심장병으로 사망할 위험이 약 1.62배 높다.
 
 **오즈비 (Odds Ratio, $OR$):**
+
 $$ OR_{HD} = \frac{\pi_{S, HD} / (1 - \pi_{S, HD})}{\pi_{NS, HD} / (1 - \pi_{NS, HD})} \approx 1.62 $$
+
 마찬가지로 확률이 낮아 상대위험도와 유사하다.
 
 ### b. 흡연을 하지 않음으로 줄일 수 있는 사망률에 근거한 비교
