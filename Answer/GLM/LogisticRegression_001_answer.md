@@ -124,3 +124,77 @@ $$ \text{95\% CI} = \mathbf{[1.029, 1.299]} $$
     **P-값:** $P(\chi^2_1 > 8.299) \approx \mathbf{0.004}$
 
     **결론:** LI 변수는 회복 확률을 설명하는 데 통계적으로 유의한 기여를 한다.
+
+---
+**검증 코드 (R)**
+
+이 솔루션은 R을 사용하여 검증되었습니다. 사용된 R 코드와 출력 결과는 다음과 같습니다.
+
+```r
+# Data Entry
+LI <- c(8, 10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 32, 34, 38)
+Cases <- c(2, 2, 3, 3, 3, 1, 3, 2, 1, 1, 1, 1, 1, 3)
+Remissions <- c(0, 0, 0, 0, 0, 1, 2, 1, 0, 1, 1, 0, 1, 2)
+Failures <- Cases - Remissions
+
+# Create DataFrame
+data <- data.frame(LI, Cases, Remissions, Failures)
+
+# Fit Logistic Regression Model (GLM)
+model <- glm(cbind(Remissions, Failures) ~ LI, family = binomial(link = "logit"), data = data)
+
+# ---------------------------------------------------------
+# Coefficients
+# ---------------------------------------------------------
+print(coef(model))
+
+# ---------------------------------------------------------
+# Part a: Probability and 95% CI
+# ---------------------------------------------------------
+new_data <- data.frame(LI = c(8, 26))
+preds <- predict(model, newdata = new_data, type = "link", se.fit = TRUE)
+lower_logit <- preds$fit - 1.96 * preds$se.fit
+upper_logit <- preds$fit + 1.96 * preds$se.fit
+prob_est <- plogis(preds$fit)
+lower_prob <- plogis(lower_logit)
+upper_prob <- plogis(upper_logit)
+print(data.frame(LI=new_data$LI, Prob=prob_est, Lower=lower_prob, Upper=upper_prob))
+
+# ---------------------------------------------------------
+# Part c: Odds Ratio and 95% CI
+# ---------------------------------------------------------
+beta <- coef(model)["LI"]
+se_beta <- summary(model)$coefficients["LI", "Std. Error"]
+or_est <- exp(beta)
+or_ci <- exp(beta + c(-1, 1) * 1.96 * se_beta)
+print(c(OR=or_est, CI=or_ci))
+
+# ---------------------------------------------------------
+# Part d: Likelihood Ratio Test
+# ---------------------------------------------------------
+null_model <- glm(cbind(Remissions, Failures) ~ 1, family = binomial(link = "logit"), data = data)
+lrt_stat <- -2 * (as.numeric(logLik(null_model)) - as.numeric(logLik(model)))
+p_val_lrt <- pchisq(lrt_stat, df = 1, lower.tail = FALSE)
+print(c(LRT_Stat=lrt_stat, P_Value=p_val_lrt))
+```
+
+**R 출력 결과 요약:**
+
+```
+Coefficients:
+(Intercept)           LI
+ -3.7771402    0.1448632
+
+Part a (Probabilities):
+  LI      Prob      Lower     Upper
+1  8 0.0680155 0.01124483 0.3193427
+2 26 0.4972580 0.25208643 0.7437887
+
+Part c (Odds Ratio):
+      OR.LI     CI1     CI2
+1.155883 1.029019 1.298380
+
+Part d (LRT):
+   LRT_Stat     P_Value
+8.298835848 0.003966922
+```
