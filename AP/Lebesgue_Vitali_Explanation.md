@@ -130,3 +130,51 @@ $$ 1 \le \sum_{k=1}^{\infty} m(V) \le 3 $$
 1.  **르벡 측도**는 길이와 넓이를 엄밀하게 일반화한 개념입니다.
 2.  **비탈리 집합**은 르벡 측도로도 잴 수 없는 '측정 불가능한 집합'의 반례입니다.
 3.  이러한 모순을 피하기 위해, 통계학에서는 확률을 정의할 수 있는 집합들의 모임인 **시그마 대수**를 도입하여 엄밀한 확률 공간을 구축합니다.
+
+---
+
+## 부록: 자명한 측도와 다른 예시들 (Trivial Measures & Others)
+
+르벡 측도가 '길이'를 재는 유일한 방법은 아닙니다. 상황에 따라 우리는 매우 단순하거나(자명하거나), 통계학에서 매우 중요하게 쓰이는 다른 종류의 측도들을 정의할 수 있습니다.
+
+### 1. 자명한 측도 (Trivial Measure / Zero Measure)
+가장 단순한 형태의 측도입니다. 어떤 집합을 가져와도 그 크기를 항상 0으로 둡니다.
+$$ \mu(A) = 0 \quad (\text{모든 } A \in \mathcal{F}) $$
+*   **의미:** 아무것도 없는 '무(無)'의 상태를 측정한다고 볼 수 있습니다. 수학적으로는 측도의 공리(0 이상의 값, 가산 가법성 등)를 모두 만족하지만, 실제 통계적 분석에는 거의 쓰이지 않아 '자명하다(Trivial)'라고 부릅니다.
+
+### 2. 셈 측도 (Counting Measure)
+집합 안에 원소가 몇 개 있는지를 세는 측도입니다.
+$$ \mu(A) = |A| = (\text{집합 } A\text{의 원소 개수}) $$
+*   **통계학적 의미:** **이산 확률 분포(Discrete Probability Distribution)**의 기초가 됩니다. 주사위를 던지거나 동전을 던지는 시행에서, 각 사건의 확률을 논할 때 우리는 은연중에 '경우의 수'를 세고 있습니다. 이것이 바로 셈 측도입니다.
+
+### 3. 디락 측도 (Dirac Measure)
+특정 점 $x$에 모든 질량이 집중되어 있는 측도입니다.
+$$
+\delta_x(A) = \begin{cases}
+1 & (x \in A) \\
+0 & (x \notin A)
+\end{cases}
+$$
+*   **통계학적 의미:** **한 점에서의 질량(Point Mass)** 또는 **퇴화 분포(Degenerate Distribution)**를 나타냅니다. 예를 들어, "내일 해가 동쪽에서 뜰 확률"은 거의 100% 확실하므로, 확률 분포가 한 점에 쏠려 있는 디락 측도와 유사하게 모델링할 수 있습니다. 물리학의 '델타 함수'와 같은 개념입니다.
+
+---
+
+## 출처 및 참고문헌 (References)
+
+본 문서 작성에 참고한 자료들입니다.
+
+1.  **Trivial Measure** - Wikipedia
+    *   [https://en.wikipedia.org/wiki/Trivial_measure](https://en.wikipedia.org/wiki/Trivial_measure)
+    *   '자명한 측도'에 대한 정의와 수학적 성질을 참고하였습니다.
+
+2.  **Dirac Measure** - Wikipedia
+    *   [https://en.wikipedia.org/wiki/Dirac_measure](https://en.wikipedia.org/wiki/Dirac_measure)
+    *   디락 측도의 정의와 지시 함수(Indicator function)로서의 성질을 참고하였습니다.
+
+3.  **Examples of Measures** - LessWrong
+    *   [https://www.lesswrong.com/posts/5nLJ3LNT2Bw6o5FYK/examples-of-measures](https://www.lesswrong.com/posts/5nLJ3LNT2Bw6o5FYK/examples-of-measures)
+    *   셈 측도(Count measure)와 디락 측도에 대한 직관적인 예시(사과 개수 세기, 텐트 그림자 등)를 참고하였습니다.
+
+4.  **Vitali Set** - MathOverflow & Online Resources
+    *   [https://mathoverflow.net/questions/202237/on-the-mesurability-of-a-vitali-set-w-r-t-a-lebesgue-absolutely-continuous-meas](https://mathoverflow.net/questions/202237/on-the-mesurability-of-a-vitali-set-w-r-t-a-lebesgue-absolutely-continuous-meas)
+    *   비탈리 집합의 구성과 측도 불가능성 증명 과정을 참고하였습니다.
