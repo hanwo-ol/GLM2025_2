@@ -82,7 +82,9 @@ Breslow-Day 검정은 **오즈비의 동질성 (Homogeneity of Odds Ratios)**을
 - $H_1: \theta_{40} \neq \theta_{60}$ (연령대별로 운동의 효과가 다르다.)
 
 **1) 오즈비 비교**
-$\widehat{\theta}_{40} \approx 0.51$ vs $\widehat{\theta}_{60} \approx 0.44$.
+$\widehat{\theta} _{40} \approx 0.51$ 
+vs 
+$\widehat{\theta} _{60} \approx 0.44$.
 두 값의 차이가 크지 않아 보인다.
 
 **2) 결과 및 해석**
