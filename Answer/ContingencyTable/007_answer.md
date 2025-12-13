@@ -12,8 +12,11 @@
 | | 아니오 | 65 | 45 |
 
 a. 각 연령 별 2x2 분할표에서 운동여부와 심장질환 발생 간의 오즈비를 구하라.
+
 b. Cochran–Mantel–Haenszel 검정을 수행하고 그 결과를 해석하라.
+
 c. Breslow–Day 검정을 수행하고 그 결과를 해석하라.
+
 d. b와 c의 결과를 종합하여, 연구자가 운동과 심장질환 발생 사이의 관계를 일반화할 수 있는지 논하라.
 
 ---
@@ -44,15 +47,19 @@ d. b와 c의 결과를 종합하여, 연구자가 운동과 심장질환 발생 
 ### 7.2 문항 a. 각 연령별 오즈비 (Conditional Odds Ratios)
 
 **1) 40대 오즈비 ($\widehat{\theta}_{40}$)**
+
 $$
 \widehat{\theta}_{40} = \frac{\text{Odds}(Y=1|X=1)}{\text{Odds}(Y=1|X=0)} = \frac{18 \times 70}{82 \times 30} = \frac{1260}{2460} \approx 0.512
 $$
+
 - 운동을 하면 심장질환 오즈가 약 0.51배로 감소한다.
 
 **2) 60대 오즈비 ($\widehat{\theta}_{60}$)**
+
 $$
 \widehat{\theta}_{60} = \frac{35 \times 45}{65 \times 55} = \frac{1575}{3575} \approx 0.441
 $$
+
 - 운동을 하면 심장질환 오즈가 약 0.44배로 감소한다.
 
 ### 7.3 문항 b. Cochran-Mantel-Haenszel (CMH) 검정
