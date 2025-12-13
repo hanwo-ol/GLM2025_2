@@ -80,19 +80,19 @@ $H_0: \beta = 0$ (LI는 효과가 없다) vs $H_1: \beta \neq 0$
 1.  **귀무가설 하의 우도 ($L_0$):**
     $\beta=0$인 모형은 오직 절편($\alpha$)만 있는 모형(Null Model)입니다. 전체 성공 확률 $\bar{y}$를 이용하여 계산합니다.
 
-    $$ \ln L_0 = \sum [y_i \ln(\bar{y}) + (1-y_i) \ln(1-\bar{y})] $$
+$$ \ln L_0 = \sum [y_i \ln(\bar{y}) + (1-y_i) \ln(1-\bar{y})] $$
 
     또는 Null Deviance $D_0 = -2 \ln L_0$ (Saturated model 기준)를 이용합니다.
 
 3.  **대립가설 하의 우도 ($L_1$):**
     적합된 로지스틱 회귀모형의 로그 우도값입니다.
 
-    $$ \ln L_1 = \sum [y_i \ln(\hat{\pi}_i) + (1-y_i) \ln(1-\hat{\pi}_i)] $$
+$$ \ln L_1 = \sum [y_i \ln(\hat{\pi}_i) + (1-y_i) \ln(1-\hat{\pi}_i)] $$
 
 
 5.  **검정 통계량 ($G^2$):**
 
-    $$ G^2 = -2 (\ln L_0 - \ln L_1) $$
+$$ G^2 = -2 (\ln L_0 - \ln L_1) $$
 
     이는 자유도 1인 카이제곱 분포 $\chi^2(1)$을 따릅니다.
 
