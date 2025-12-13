@@ -12,8 +12,11 @@ Labeling Index (LI) is an indicator of cellular activity measured after the admi
 | 16 | 3 | 0 | 26 | 1 | 1 | | | |
 
 a. Calculate the estimated probability of recovery (π) and the 95% confidence interval for patients with LI = 8 and LI = 26.
+
 b. Calculate the rate of change of π for LI = 8 and LI = 26.
+
 c. Compute the 95% confidence interval of the odds ratio for the effect of LI.
+
 d. To perform a likelihood ratio test for the effect of LI, obtain the likelihood under the null hypothesis and the likelihood under the alternative hypothesis, and then conduct the likelihood ratio test.
 
 ---
@@ -23,7 +26,9 @@ d. To perform a likelihood ratio test for the effect of LI, obtain the likelihoo
 ### 1.1 데이터 재구성 및 로지스틱 회귀모형 적합
 
 데이터가 그룹형(Grouped Data)으로 주어져 있습니다. 로지스틱 회귀분석을 위해 다음과 같이 모형을 설정합니다.
+
 $$ \text{logit}(\pi_i) = \ln \left( \frac{\pi_i}{1-\pi_i} \right) = \alpha + \beta x_i $$
+
 여기서 $x_i$는 LI(Labeling Index) 값, $\pi_i$는 해당 LI에서의 회복(Remission) 확률입니다.
 
 주어진 데이터를 풀어서(Un-grouped) 분석하거나, `cbind(Success, Failure)` 형태를 사용하여 GLM을 적합할 수 있습니다.
@@ -35,6 +40,7 @@ $$ \text{logit}(\pi_i) = \ln \left( \frac{\pi_i}{1-\pi_i} \right) = \alpha + \be
 ### 1.2 문항 a. LI = 8, 26에서의 회복 확률 추정 및 신뢰구간
 
 특정 값 $x_0$에서의 추정 확률 $\hat{\pi}_0$는 다음과 같습니다.
+
 $$ \hat{\pi}_0 = \frac{\exp(\hat{\alpha} + \hat{\beta}x_0)}{1 + \exp(\hat{\alpha} + \hat{\beta}x_0)} $$
 
 **신뢰구간 (Confidence Interval) 구하기:**
@@ -48,16 +54,23 @@ $$ \hat{\pi}_0 = \frac{\exp(\hat{\alpha} + \hat{\beta}x_0)}{1 + \exp(\hat{\alpha
 ### 1.3 문항 b. 확률의 변화율 (Rate of Change)
 
 로지스틱 회귀모형에서 확률의 순간 변화율(기울기)은 다음과 같이 미분하여 얻습니다.
+
 $$ \frac{d\pi}{dx} = \frac{d}{dx} \left( \frac{e^{\alpha+\beta x}}{1+e^{\alpha+\beta x}} \right) = \beta \pi(1-\pi) $$
+
 따라서 LI = 8과 LI = 26에서의 변화율은 각 지점의 추정 확률 $\hat{\pi}$와 계수 $\hat{\beta}$를 대입하여 계산합니다.
+
 $$ \text{Rate} = \hat{\beta} \hat{\pi}(x) (1-\hat{\pi}(x)) $$
+
 확률이 0.5에 가까울수록(즉, $\eta=0$ 근처), 변화율이 가장 큽니다. LI=8은 데이터 범위의 하한선이므로 확률이 낮고 변화율도 작을 것으로 예상되며, LI=26은 중간~상위 영역이므로 변화율이 다를 것입니다.
 
 ### 1.4 문항 c. 오즈비(Odds Ratio)의 95% 신뢰구간
 
 LI가 1 단위 증가할 때의 오즈비는 $\exp(\beta)$입니다.
+
 $\beta$의 95% 신뢰구간이 $(\hat{\beta}_L, \hat{\beta}_U)$라면, 오즈비의 신뢰구간은 다음과 같습니다.
+
 $$ \text{OR 95\% CI} = (e^{\hat{\beta}_L}, e^{\hat{\beta}_U}) $$
+
 여기서 $\hat{\beta}_L = \hat{\beta} - 1.96 \times SE(\hat{\beta})$ 입니다.
 
 ### 1.5 문항 d. 우도비 검정 (Likelihood Ratio Test)
@@ -66,15 +79,21 @@ $H_0: \beta = 0$ (LI는 효과가 없다) vs $H_1: \beta \neq 0$
 
 1.  **귀무가설 하의 우도 ($L_0$):**
     $\beta=0$인 모형은 오직 절편($\alpha$)만 있는 모형(Null Model)입니다. 전체 성공 확률 $\bar{y}$를 이용하여 계산합니다.
+
     $$ \ln L_0 = \sum [y_i \ln(\bar{y}) + (1-y_i) \ln(1-\bar{y})] $$
+
     또는 Null Deviance $D_0 = -2 \ln L_0$ (Saturated model 기준)를 이용합니다.
 
-2.  **대립가설 하의 우도 ($L_1$):**
+3.  **대립가설 하의 우도 ($L_1$):**
     적합된 로지스틱 회귀모형의 로그 우도값입니다.
+
     $$ \ln L_1 = \sum [y_i \ln(\hat{\pi}_i) + (1-y_i) \ln(1-\hat{\pi}_i)] $$
 
-3.  **검정 통계량 ($G^2$):**
+
+5.  **검정 통계량 ($G^2$):**
+
     $$ G^2 = -2 (\ln L_0 - \ln L_1) $$
+
     이는 자유도 1인 카이제곱 분포 $\chi^2(1)$을 따릅니다.
 
 ---
