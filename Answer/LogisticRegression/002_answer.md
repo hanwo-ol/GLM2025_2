@@ -4,7 +4,9 @@
 Hastie and Tibshirani 1990, p. 282 described a study to determine risk factors for kyphosis, severe forward flexion of the spine following corrective spinal surgery. The age in months at the time of the operation for the 18 subjects for whom kyphosis was present were 12, 15, 42, 52, 59, 73, 82, 91, 96, 105, 114, 120, 121, 128, 130, 139, 139, 157 and for 22 of the subjects for whom kyphosis was absent were 1, 1, 2, 8, 11, 18, 22, 31, 37, 61, 72, 81, 97, 112, 118, 127, 131, 140, 151, 159, 177, 206.
 
 a. Fit a logistic regression model using age as a predictor of whether kyphosis is present. Test whether age has a significant effect.
+
 b. Plot the data. Note the difference in dispersion on age at the two levels of kyphosis.
+
 c. Fit the model $\text{logit}[\pi(x)] = \alpha + \beta_1 x + \beta_2 x^2$. Test the significance of the squared age term, plot the fit, and interpret.
 
 ---
@@ -14,6 +16,7 @@ c. Fit the model $\text{logit}[\pi(x)] = \alpha + \beta_1 x + \beta_2 x^2$. Test
 ### 2.1 문항 a. 단순 로지스틱 회귀 적합 및 검정
 
 반응변수 $Y$를 Kyphosis 유무(Present=1, Absent=0), 설명변수 $x$를 Age(개월 수)로 설정합니다.
+
 $$ \text{logit}(\pi) = \alpha + \beta x $$
 
 **가설 검정:**
@@ -33,6 +36,7 @@ R의 `glm()` 함수를 사용하여 추정하고, Wald Test($Z$-statistic) 또�
 ### 2.3 문항 c. 이차항(Squared Term) 추가 및 해석
 
 단순 선형 모델로는 중간 대역에서 발병률이 높고 양 끝단에서 낮은(뒤집힌 U자형) 패턴을 설명할 수 없습니다. 따라서 이차항 $x^2$을 추가합니다.
+
 $$ \text{logit}[\pi(x)] = \alpha + \beta_1 x + \beta_2 x^2 $$
 
 **가설 검정:**
