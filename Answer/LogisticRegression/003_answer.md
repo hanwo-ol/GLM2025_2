@@ -2,11 +2,16 @@
 
 ## 문제 (English)
 Let $Y$ denote a subject’s opinion about current laws legalizing abortion (1=support), for gender $h$ ($h=1$, female; $h=2$, male), religious affiliation $i$ ($i=1$, Protestant; $i=2$, Catholic, $i=3$, Jewish), and political party affiliation $j$ ($j=1$, Democrat; $j=2$, Republican; $j=3$, Independent). For survey data, software for fitting the model
+
 $$ \text{logit}[P(Y=1)] = \alpha + \beta_h^G + \beta_i^R + \beta_j^P $$
-reports $\hat{\alpha} = 0.62$, $\hat{\beta}_1^G = 0.08$, $\hat{\beta}_2^G = -0.08$, $\hat{\beta}_1^R = -0.16$, $\hat{\beta}_2^R = -0.25$, $\hat{\beta}_3^R = 0.41$, $\hat{\beta}_1^P = 0.87$, $\hat{\beta}_2^P = -1.27$, $\hat{\beta}_3^P = 0.40$.
+
+reports $\hat{\alpha} = 0.62$, 
+$\hat{\beta}_1^G = 0.08$, $\hat{\beta}_2^G = -0.08$, $\hat{\beta}_1^R = -0.16$, $\hat{\beta}_2^R = -0.25$, $\hat{\beta}_3^R = 0.41$, $\hat{\beta}_1^P = 0.87$, $\hat{\beta}_2^P = -1.27$, $\hat{\beta}_3^P = 0.40$.
 
 a. Interpret how the odds of support depends on religion.
+
 b. Estimate the probability of support for the group most (least) likely to support current laws.
+
 c. If, instead, parameters used constraints $\beta_1^G = \beta_1^R = \beta_1^P = 0$, report the estimates.
 
 ---
@@ -34,12 +39,15 @@ c. If, instead, parameters used constraints $\beta_1^G = \beta_1^R = \beta_1^P =
 - **Protestant**와 **Catholic**은 각각 $e^{-0.16} \approx 0.85$, $e^{-0.25} \approx 0.78$배로 평균보다 낮은 찬성 오즈를 보입니다.
 
 **Protestant 대비 Jewish의 오즈비:**
+
 $$ OR_{J \text{ vs } P} = \exp(0.41 - (-0.16)) = \exp(0.57) \approx 1.77 $$
+
 해석: 유대교인은 개신교인에 비해 낙태 합법화를 지지할 오즈가 약 1.77배 높습니다.
 
 ### 3.3 문항 b. 찬성 확률이 가장 높은/낮은 집단 추정
 
 $$ \text{logit}(\pi) = 0.62 + \beta^G + \beta^R + \beta^P $$
+
 $\pi$를 최대화하려면 $\beta$ 값들을 가장 큰 것끼리 조합해야 합니다.
 
 **1) 가장 찬성할 것 같은 그룹 (Highest Probability)**
@@ -48,14 +56,20 @@ $\pi$를 최대화하려면 $\beta$ 값들을 가장 큰 것끼리 조합해야 
 - Party: Democrat ($0.87$) > I ($0.40$) > R ($-1.27$)
 
 **조합:** Female, Jewish, Democrat
+
 $$ \hat{\eta}_{\max} = 0.62 + 0.08 + 0.41 + 0.87 = 1.98 $$
+
 $$ \hat{\pi}_{\max} = \frac{e^{1.98}}{1+e^{1.98}} \approx 0.8787 $$
+
 약 **87.9%** 확률로 찬성합니다.
 
 **2) 가장 찬성하지 않을 것 같은 그룹 (Lowest Probability)**
 - 조합: Male ($-0.08$), Catholic ($-0.25$), Republican ($-1.27$)
+
 $$ \hat{\eta}_{\min} = 0.62 - 0.08 - 0.25 - 1.27 = -0.98 $$
+
 $$ \hat{\pi}_{\min} = \frac{e^{-0.98}}{1+e^{-0.98}} \approx 0.2729 $$
+
 약 **27.3%** 확률로 찬성합니다.
 
 ### 3.4 문항 c. Reference Coding ($\beta_1 = 0$) 으로의 변환
@@ -70,7 +84,9 @@ $$ \hat{\pi}_{\min} = \frac{e^{-0.98}}{1+e^{-0.98}} \approx 0.2729 $$
 **새로운 절편 ($\alpha_{ref}$):**
 모든 범주가 1번(Female, Protestant, Democrat)일 때의 값이어야 합니다.
 기존 모델에서의 (1,1,1) Logit 값:
+
 $$ 0.62 + 0.08 + (-0.16) + 0.87 = 1.41 $$
+
 따라서 $\hat{\alpha}_{ref} = 1.41$
 
 **새로운 계수들 ($\beta^{ref}$):**
