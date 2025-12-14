@@ -17,9 +17,13 @@ Following Table, refers to the effectiveness of immediately injected or $1 \frac
 | | 1 1/2 h | 5 | 0 |
 
 a. Let $X=$ delay, $Y=$ whether cured, and $Z=$ penicillin level. Fit the logit model $\text{logit}(\pi_{ik}) = \alpha + \beta x_i + \beta_k^Z (i=1,2, k=1,\dots,5)$. Argue that the pattern of 0 cell counts suggests that (with no intercepts) $\beta_1^Z = -\infty$ and $\beta_5^Z = \infty$ (assuming ordinal levels). What does your software report?
+
 b. Using the logit model, conduct the likelihood-ratio test of $XY$ conditional independence and interpret.
+
 c. Test $XY$ conditional independence using the Cochran Mantel Haenszel test and interpret.
+
 d. Estimate the $XY$ conditional odds ratio using (i) ML with the logit model, and (ii) the Mantel Haenszel estimate and interpret.
+
 e. The small cell counts make large-sample analyses questionable. Conduct small sample inference and interpret.
 
 ---
