@@ -15,8 +15,13 @@ Consider following Table, from a study of nonmetastatic osteosarcoma (A. M. Goor
 | | | Yes | 6 | 11 |
 
 a. Show that each predictor has a significant effect when used individually without the others.
+
 b. Try to fit a main-effects logistic regression model containing all three predictors. Explain why the ML estimate for the effect of lymphocytic infiltration is infinite.
-c. Using conditional logistic regression, (i) conduct an exact test for the effect of lymphocytic infiltration, controlling for the other variables; and (ii) find a 95% confidence interval for the effect. Interpret results.
+
+c. Using conditional logistic regression, 
+
+(i) conduct an exact test for the effect of lymphocytic infiltration, controlling for the other variables   
+(ii) find a 95% confidence interval for the effect. Interpret results.
 
 ---
 
@@ -43,7 +48,9 @@ c. Using conditional logistic regression, (i) conduct an exact test for the effe
 ### 6.2 문항 b. 다중 로지스틱 회귀와 무한대 추정값
 
 세 변수를 모두 넣고 모델을 적합할 때, **Lymphocytic Infiltration = High**인 모든 환자(10명)는 Disease-Free = Yes입니다 (No = 0).
+
 $$ P(Y=1 | \text{Infiltration=High}) = 1 $$
+
 이는 **완전 분리(Complete Separation)** 현상입니다.
 우도 함수를 최대화하려면 High 그룹의 로그 오즈($\alpha + \beta_{High} + \dots$)가 $+\infty$가 되어야 하므로, $\hat{\beta}_{High}$는 양의 무한대로 발산합니다. 따라서 표준적인 최대우도추정(MLE)은 존재하지 않거나 수렴하지 않습니다.
 
