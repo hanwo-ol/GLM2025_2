@@ -3,7 +3,9 @@
 ## 문제 (English)
 Suppose that $\pi_{ijk}$ in a $2 \times 2 \times 2$ table is, by row, $(0.15, 0.10 / 0.10, 0.15)$ when $Z=1$ and $(0.10, 0.15 / 0.15, 0.10)$ when $Z=2$. For testing conditional $XY$ independence with logit models having $Y$ as a response, explain why the likelihood-ratio test comparing models $X+Z$ and $Z$ is not consistent but the likelihood-ratio test of fit of the $XY$ conditional independence model is.
 
-*(Note: The probability notation $(p_{11}, p_{12} / p_{21}, p_{22})$ usually refers to cell probabilities $P(X=i, Y=j | Z=k)$ or joint probabilities. Given the context of "logit models having Y as a response", we should interpret these values carefully. However, looking at the pattern, it seems to define the joint structure.)*
+*(Note: The probability notation 
+$(p_{11}, p_{12} / p_{21}, p_{22})$ usually refers to cell probabilities 
+$P(X=i, Y=j | Z=k)$ or joint probabilities. Given the context of "logit models having Y as a response", we should interpret these values carefully. However, looking at the pattern, it seems to define the joint structure.)*
 
 ---
 
