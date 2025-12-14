@@ -14,15 +14,19 @@ Suppose that $\pi_{ijk}$ in a $2 \times 2 \times 2$ table is, by row, $(0.15, 0.
 주어진 확률 구조를 $2 \times 2$ 표로 나타내면 다음과 같습니다.
 
 **Z=1 층:**
+
 $$
 \begin{pmatrix} 0.15 & 0.10 \\ 0.10 & 0.15 \end{pmatrix}
 $$
+
 - 오즈비 $OR_1 = \frac{0.15 \times 0.15}{0.10 \times 0.10} = \frac{0.0225}{0.01} = 2.25$
 
 **Z=2 층:**
+
 $$
 \begin{pmatrix} 0.10 & 0.15 \\ 0.15 & 0.10 \end{pmatrix}
 $$
+
 - 오즈비 $OR_2 = \frac{0.10 \times 0.10}{0.15 \times 0.15} = \frac{0.01}{0.0225} \approx 0.444$ ($= 1/2.25$)
 
 ### 7.2 조건부 독립성 검정 ($XY \perp Z$)
@@ -33,7 +37,9 @@ $$
 ### 7.3 모형 비교 (LRT comparing $X+Z$ and $Z$)
 
 로지스틱 회귀모형 $X+Z$ (Main Effects Model)는 오즈비가 $Z$에 따라 변하지 않는다(Homogeneous Odds Ratio)고 가정합니다.
+
 $$ \text{logit}[P(Y=1)] = \alpha + \beta_X X + \beta_Z Z $$
+
 이 모형은 모든 층에서 공통된 오즈비 $e^{\beta_X}$를 추정합니다.
 데이터에서 $OR_1 = 2.25$, $OR_2 = 0.44$이므로, 이들의 기하평균적인 공통 오즈비는 약 1 ($2.25 \times 0.44 \approx 1$)에 가까울 것입니다.
 따라서 $X+Z$ 모형을 적합하면 $\hat{\beta}_X \approx 0$이 됩니다.
