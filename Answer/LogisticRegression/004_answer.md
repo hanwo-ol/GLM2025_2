@@ -2,10 +2,18 @@
 
 ## 문제 (English)
 A study for several professional sports of the effect of a player’s draft position $d$ ($d=1,2,3,\dots$) of selection from the pool of potential players in a given year on the probability $\pi$ of eventually being named an all-star used the model
+
 $$ \text{logit}(\pi) = \alpha + \beta \log d $$
+
 (S.M. Berry, Chance, 14:53-57, 2001).
 
-a. Show that $\pi(1-\pi)^E = e^{\alpha} d^{\beta}$. (Note: The provided text says $\pi(1-\pi)^E$, but based on context it likely implies Odds or a typo. Let's inspect the math. Logit is $\log(\pi/(1-\pi))$. So $\pi/(1-\pi) = e^{\alpha+\beta \log d} = e^\alpha (e^{\log d})^\beta = e^\alpha d^\beta$. The original text seems to have a typo "E" instead of nothing or $-1$. Let's assume it asks to show the Odds relationship: $\text{Odds} = e^\alpha d^\beta$.)
+a. Show that $\pi(1-\pi)^E = e^{\alpha} d^{\beta}$. (Note: The provided text says $\pi(1-\pi)^E$, but based on context it likely implies Odds or a typo.
+
++ Let's inspect the math.
++ Logit is $\log(\pi/(1-\pi))$. So $\pi/(1-\pi) = e^{\alpha+\beta \log d} = e^\alpha (e^{\log d})^\beta = e^\alpha d^\beta$.
++ The original text seems to have a typo "E" instead of nothing or $-1$.
++ Let's assume it asks to show the Odds relationship: $\text{Odds} = e^\alpha d^\beta$.)
+
 b. In the United States, Berry reported $\hat{\alpha}=2.3$ and $\hat{\beta}=-1.1$ for pro basketball and $\hat{\alpha}=0.7$ and $\hat{\beta}=-0.6$ for pro baseball. This suggests that in basketball a first draft picks with high $d$ are relatively less likely to be all-stars. Explain why.
 
 ---
@@ -15,12 +23,17 @@ b. In the United States, Berry reported $\hat{\alpha}=2.3$ and $\hat{\beta}=-1.1
 ### 4.1 문항 a. 수식 유도
 
 문제의 모델은 로그 오즈(Log Odds)가 $d$의 로그값에 선형적으로 비례한다고 가정합니다.
+
 $$ \ln \left( \frac{\pi}{1-\pi} \right) = \alpha + \beta \ln d $$
 
 양변에 지수함수(Exponential)를 취하면:
+
 $$ \frac{\pi}{1-\pi} = \exp(\alpha + \beta \ln d) $$
+
 $$ \frac{\pi}{1-\pi} = e^{\alpha} \cdot e^{\beta \ln d} $$
+
 로그의 성질 $a \ln x = \ln (x^a)$와 $e^{\ln k} = k$를 이용하면:
+
 $$ \frac{\pi}{1-\pi} = e^{\alpha} \cdot d^{\beta} $$
 
 문제 원문의 $\pi(1-\pi)^E$는 $\pi / (1-\pi)$ 즉, **오즈(Odds)**를 의미하는 것으로 보입니다 (오타 추정: E가 exponent $-1$을 의미하거나 Odds의 O를 잘못 표기했을 가능성).
@@ -30,9 +43,12 @@ $$ \frac{\pi}{1-\pi} = e^{\alpha} \cdot d^{\beta} $$
 
 주어진 계수:
 - **농구 (Basketball):** $\alpha = 2.3, \beta = -1.1$
-  $$ \text{Odds}_{BK} = e^{2.3} d^{-1.1} \approx 9.97 \times \frac{1}{d^{1.1}} $$
+
+$$ \text{Odds}_{BK} = e^{2.3} d^{-1.1} \approx 9.97 \times \frac{1}{d^{1.1}} $$
+
 - **야구 (Baseball):** $\alpha = 0.7, \beta = -0.6$
-  $$ \text{Odds}_{BB} = e^{0.7} d^{-0.6} \approx 2.01 \times \frac{1}{d^{0.6}} $$
+
+$$ \text{Odds}_{BB} = e^{0.7} d^{-0.6} \approx 2.01 \times \frac{1}{d^{0.6}} $$
 
 **해석:**
 1.  **초기 기대치 ($\alpha$):** $d=1$(드래프트 1순위)일 때의 오즈는 농구가 $e^{2.3} \approx 10$으로 야구 $e^{0.7} \approx 2$보다 훨씬 높습니다. 즉, 농구 1순위는 올스타가 될 확률이 매우 높습니다.
